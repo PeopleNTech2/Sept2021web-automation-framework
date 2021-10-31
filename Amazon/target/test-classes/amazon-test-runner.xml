@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng/testng-1.0.dtd">
+<suite name="Amazon Automation Scipt" parallel="false">
+    <test name = "Amazon search">
+        <classes>
+<!--            <class name="test.HomeTest"/>-->
+            <class name="test.SearchTest"/>
+        </classes>
+    </test>
+
+</suite>
