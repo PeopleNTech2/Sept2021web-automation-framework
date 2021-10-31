@@ -11,6 +11,9 @@
   <modules>
     <module>Generic</module>
     <module>Amazon</module>
+    <module>CNN</module>
+    <module>Ebay</module>
+    <module>Bestbuy</module>
   </modules>
 
   <name>Web-Automation-Framework</name>

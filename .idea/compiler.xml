@@ -7,8 +7,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Amazon" />
+        <module name="Bestbuy" />
+        <module name="CNN" />
+        <module name="Ebay" />
         <module name="Generic" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Amazon" target="8" />
+      <module name="Bestbuy" target="1.7" />
+      <module name="CNN" target="1.7" />
+      <module name="Ebay" target="1.7" />
+      <module name="Generic" target="8" />
+      <module name="Web-Automation-Framework" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

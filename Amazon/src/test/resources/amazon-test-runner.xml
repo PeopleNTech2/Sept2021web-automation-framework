@@ -1,8 +1,17 @@
-<!DOCTYPE suite SYSTEM "http://testng/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "https://testng/testng-1.0.dtd">
 <suite name="Amazon Automation Scipt" parallel="false">
-    <test name = "Amazon search">
+
+    <!--<parameter name="useCloudEnv" value="flase"/>-->
+    <!--<parameter name="cloudEnvName" value="browserstack"/>-->
+    <parameter name="os" value="Windows"/>
+    <!--<parameter name="os_version" value="Sierra"/>-->
+    <parameter name="browserName" value="chrome"/>
+    <!--<parameter name="browserVersion" value="65.0"/>-->
+    <parameter name="url" value="https://www.amazon.com"/>
+
+    <test name = "smloke Amazon search">
         <classes>
-<!--            <class name="test.HomeTest"/>-->
+            <!--<class name="test.HomeTest"/>-->
             <class name="test.SearchTest"/>
         </classes>
     </test>
