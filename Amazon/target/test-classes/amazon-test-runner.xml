@@ -8,11 +8,11 @@
     <parameter name="browserName" value="chrome"/>
     <!--<parameter name="browserVersion" value="65.0"/>-->
     <parameter name="url" value="https://www.amazon.com"/>
-
-    <test name = "smloke Amazon search">
+    <test name = "smoke testing Amazon search">
         <classes>
             <!--<class name="test.HomeTest"/>-->
             <class name="test.SearchTest"/>
+            <!--<class name="test.PrimeTest"/>-->
         </classes>
     </test>
 

@@ -4,40 +4,45 @@ import base.CommonAPI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import utility.DataReader;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchTest extends CommonAPI {
+public class SearchTest extends CommonAPI{
     //@Test
-    public void test1() throws InterruptedException {
-        typeAndEnter("//*[@id='twotabsearchtextbox']", "java book");
+    public void searchJavaBookTest() {
+        driver.getTitle();
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        homePage.searchItem("java book");
     }
     //@Test
-    public void test2() throws InterruptedException {
-        typeAndEnter("#twotabsearchtextbox", "selenium book");
+    public void searchSeleniumBookTest() throws InterruptedException {
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        homePage.searchItem("selenium book");
     }
     //@Test
     public void dropdownOptions(){
-        List<String> list = new ArrayList<>();
-        List<WebElement> elemets = driver.findElements(By.xpath("//select[@class='nav-search-dropdown searchSelect nav-progressive-attrubute nav-progressive-search-dropdown']/option"));
-        for (WebElement element : elemets) {
-            list.add(element.getText());
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        for (String option: homePage.getSearchDropdownOptionsText()){
+            System.out.println(option);
         }
-        System.out.println(list);
     }
 
-//    @Test
+    //@Test
     public void selectDropdownElement(){
-        WebElement dropdown = driver.findElement(By.cssSelector("#searchDropdownBox"));
-        Select sel = new Select(dropdown);
-        sel.selectByVisibleText("Alexa Skills");
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        homePage.selectDropdownElement("Alexa Skills");
     }
 
-    @Test
+    //@Test
     public void searchItemsOneAfterOther(){
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         List<String> itemToSearch = new ArrayList<>();
         itemToSearch.add("laptop");
         itemToSearch.add("ps5");
@@ -46,9 +51,19 @@ public class SearchTest extends CommonAPI {
         itemToSearch.add("mouse");
 
         for (String item: itemToSearch) {
-            typeAndEnter("*[id='twotabsearchtextbox']", item);
-            clear("#twotabsearchtextbox");
+            homePage.searchItem(item);
+            homePage.clearSearchField();
+        }
+    }
+    @Test
+    public void searchMultipleItems() throws IOException {
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        DataReader dataReader = new DataReader();
+        String[] itemToSearch = dataReader.colReader("C:\\Users\\PIIT_NYA\\IdeaProjects\\web-automation-framework\\Amazon\\data\\items.xls", 1);
 
+        for (String item: itemToSearch) {
+            homePage.searchItem(item);
+            homePage.clearSearchField();
         }
     }
 

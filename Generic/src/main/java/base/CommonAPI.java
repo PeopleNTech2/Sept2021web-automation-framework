@@ -28,7 +28,7 @@ public class CommonAPI {
     @Parameters({"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false") String cloudEnvName,
-                      @Optional("OS X") String os, @Optional("10") String os_version, @Optional("chrome") String browserName, @Optional("34")
+                      @Optional("mac") String os, @Optional("10") String os_version, @Optional("chrome") String browserName, @Optional("34")
                               String browserVersion, @Optional("https://www.walmart.com") String url) throws IOException {
 
         getLocalDriver(os, browserName);
@@ -113,9 +113,38 @@ public class CommonAPI {
             }
         }
     }
-    public void typeOnCss(String locator, String value){
-        driver.findElement(By.cssSelector(locator)).sendKeys(value);
+    //------------------------------------------------------------------------------------------------------------------------
+    //generic methods for page factory
+    //------------------------------------------------------------------------------------------------------------------------
+    public void typeEnter(WebElement element, String str){
+        element.sendKeys(str, Keys.ENTER);
     }
+    public void selectDropdownElementByVisibleText(WebElement element,String str){
+        Select sel = new Select(element);
+        sel.selectByVisibleText(str);
+    }
+    public void waitFor(int seconds){
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void clearTextField(WebElement element){
+        element.clear();
+    }
+    public void clickOn(WebElement element){
+        element.click();
+    }
+    public void hoverOver(WebDriver driver, WebElement element){
+        Actions action = new Actions(driver);
+        action.moveToElement(element).build().perform();
+    }
+    public void scrollToView(WebElement element, WebDriver driver){
+        JavascriptExecutor js = ((JavascriptExecutor)driver);
+        js.executeScript("arguments[0].scrollIntoView(true)", element);
+    }
+    //=======================================================================================================================
     public void typeOnInputField(String locator, String value){
         try {
             driver.findElement(By.cssSelector(locator)).sendKeys(value);
@@ -124,7 +153,9 @@ public class CommonAPI {
         }
 
     }
-
+    public void typeOnCss(String locator, String value){
+        driver.findElement(By.cssSelector(locator)).sendKeys(value);
+    }
     public void clickByXpath(String locator) {
         driver.findElement(By.xpath(locator)).click();
     }
