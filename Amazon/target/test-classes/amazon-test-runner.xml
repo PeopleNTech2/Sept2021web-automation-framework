@@ -1,12 +1,14 @@
 <!DOCTYPE suite SYSTEM "https://testng/testng-1.0.dtd">
 <suite name="Amazon Automation Scipt" parallel="false">
 
+    <!--cloud parameters-->
     <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnvName" value="browserstack"/>
-    <parameter name="os" value="OS X"/>
-    <parameter name="os_version" value="Big Sur"/>
+    <parameter name="os_version" value="10"/>
+    <parameter name="browserVersion" value="94"/>
+    <!--both cloud  local parameters-->
+    <parameter name="os" value="Windows"/>
     <parameter name="browserName" value="chrome"/>
-    <parameter name="browserVersion" value="95.0"/>
     <parameter name="url" value="https://www.amazon.com"/>
     <test name = "smoke testing Amazon search">
         <classes>

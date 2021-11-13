@@ -18,7 +18,7 @@ import java.util.List;
 public class SearchTest extends CommonAPI{
     @Test
     public void searchJavaBookTest() {
-        TestLogger.log(convertToString("C: " + getClass().getSimpleName()) + " - M: " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        //TestLogger.log(convertToString("C: " + getClass().getSimpleName()) + " - M: " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         driver.getTitle();
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         homePage.searchItem("java book");
@@ -40,7 +40,7 @@ public class SearchTest extends CommonAPI{
     public void selectDropdownElement(){
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         homePage.selectDropdownElement("Alexa Skills");
-        takeScreenshot("Home Page");
+        takeScreenshot("Alexa Skills");
     }
 
 //    @Test

@@ -43,3 +43,36 @@ html/css - jaspreet
 
 to update the framework to page object model archtecure
 create more test case - 10
+
+-------------------------------------------------------------------------------------------
+
+POM.xml
+POM = Page Object Model: web page (elements) = java class (elements)
+
+driver.findElement(By.xpath(""))
+
+Actions class = mouse interactions
+Javascriptexecutor class = to use javascript script
+Select class = dropdown
+
+sendKeys() = for keyboard interactions
+click()
+
+@FindBy(ccs="")
+WebElement name
+
+Page Object Model/Page Factory
+
+Thread class = java
+
+impecit wait: wait that is apply all framework elements
+explicit wait: wait until action happens
+fluent wait: interval [min max]
+
+broweestack	https://www.browserstack.com/
+saucelabs		https://saucelabs.com/
+
+CICD (Continuous Integration / Continuous Deployment)
+	    git/github	              jenkins
+
+DevOps team

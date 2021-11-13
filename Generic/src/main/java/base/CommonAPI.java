@@ -124,14 +124,14 @@ public class CommonAPI {
         if (browserName.equalsIgnoreCase("chrome")) {
             if (OS.equalsIgnoreCase("OS X")) {
                 System.setProperty("webdriver.chrome.driver", "../Generic/drivers/chromedriver");
-            } else if (OS.equalsIgnoreCase("windows")) {
+            } else if (OS.equalsIgnoreCase("Windows")) {
                 System.setProperty("webdriver.chrome.driver", "../Generic/drivers/chromedriver.exe");
             }
             driver = new ChromeDriver();
-        } else if (browserName.equalsIgnoreCase("ff")) {
+        } else if (browserName.equalsIgnoreCase("firefox")) {
             if (OS.equalsIgnoreCase("OS X")) {
                 System.setProperty("webdriver.gecko.driver", "../Generic/drivers/geckodriver");
-            } else if (OS.equalsIgnoreCase("windows")) {
+            } else if (OS.equalsIgnoreCase("Windows")) {
                 System.setProperty("webdriver.gecko.driver", "../Generic/drivers/geckodriver.exe");
             }
             driver = new FirefoxDriver();
@@ -329,7 +329,7 @@ public class CommonAPI {
     public void captureScreenshot() {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file,new File("screenShots.png"));
+            FileUtils.copyFile(file,new File("screenshots/screenshot.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -342,9 +342,12 @@ public class CommonAPI {
 
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file, new File(System.getProperty("user.dir")+ "/screenshots/"+screenshotName+" "+df.format(date)+".png"));
+            FileUtils.copyFile(file, new File(System.getProperty("user.dir")+File.pathSeparator+ "screenshots"+File.pathSeparator+screenshotName+" "+df.format(date)+".png"));
+
             System.out.println("Screenshot captured");
         } catch (Exception e) {
+            String path = System.getProperty("user.dir")+ "/screenshots/"+screenshotName+" "+df.format(date)+".png";
+            System.out.println(path);
             System.out.println("Exception while taking screenshot "+e.getMessage());;
         }
     }
