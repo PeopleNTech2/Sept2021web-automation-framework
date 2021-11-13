@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import reporting.TestLogger;
 import utility.DataReader;
 
 import java.io.IOException;
@@ -15,18 +16,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchTest extends CommonAPI{
-    //@Test
+    @Test
     public void searchJavaBookTest() {
+        TestLogger.log(convertToString("C: " + getClass().getSimpleName()) + " - M: " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         driver.getTitle();
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         homePage.searchItem("java book");
     }
-    //@Test
+//    @Test
     public void searchSeleniumBookTest() throws InterruptedException {
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         homePage.searchItem("selenium book");
     }
-    //@Test
+//    @Test
     public void dropdownOptions(){
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         for (String option: homePage.getSearchDropdownOptionsText()){
@@ -34,13 +36,14 @@ public class SearchTest extends CommonAPI{
         }
     }
 
-    //@Test
+//    @Test
     public void selectDropdownElement(){
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         homePage.selectDropdownElement("Alexa Skills");
+        takeScreenshot("Home Page");
     }
 
-    //@Test
+//    @Test
     public void searchItemsOneAfterOther(){
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         List<String> itemToSearch = new ArrayList<>();
@@ -55,11 +58,11 @@ public class SearchTest extends CommonAPI{
             homePage.clearSearchField();
         }
     }
-    @Test
+//    @Test
     public void searchMultipleItems() throws IOException {
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         DataReader dataReader = new DataReader();
-        String[] itemToSearch = dataReader.colReader("C:\\Users\\PIIT_NYA\\IdeaProjects\\web-automation-framework\\Amazon\\data\\items.xls", 1);
+        String[] itemToSearch = dataReader.colReader("../Amazon/data/items.xls", 1);
 
         for (String item: itemToSearch) {
             homePage.searchItem(item);

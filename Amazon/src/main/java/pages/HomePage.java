@@ -16,7 +16,7 @@ public class HomePage extends CommonAPI{
 
     @FindBy (id = "nav-logo-sprites")
     WebElement logo;
-    @FindBy (xpath = "//*[@id='twotabsearchtextbox']")
+    @FindBy (id = "twotabsearchtextbox")
     WebElement searchField;
     @FindBy (xpath = "//select[@class='nav-search-dropdown searchSelect nav-progressive-attrubute nav-progressive-search-dropdown']/option")
     List<WebElement> dropdownOptions;
@@ -57,8 +57,8 @@ public class HomePage extends CommonAPI{
     public void searchItem(String str){
         typeEnter(getSearchField(), str);
     }
-    public void selectDropdownElement(String str){
-        selectDropdownElementByVisibleText(getSearchDropdownElement(),str);
+    public void selectDropdownElement(String value){
+        selectDropdownElement(getSearchDropdownElement(), value);
     }
     public List<String> getSearchDropdownOptionsText(){
         List<String> list = new ArrayList<>();
