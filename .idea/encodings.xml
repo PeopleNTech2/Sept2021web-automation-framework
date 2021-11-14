@@ -3,11 +3,13 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Amazon" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Amazon/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Amazon/src/test/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Bestbuy" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CNN" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Ebay" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Generic" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Generic/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RestApi/src/test/resources" charset="UTF-8" />
   </component>
 </project>
