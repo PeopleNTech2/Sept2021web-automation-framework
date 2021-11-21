@@ -229,6 +229,18 @@ public class CommonAPI {
         Actions action = new Actions(driver);
         action.moveToElement(element).build().perform();
     }
+    public void dragDrop(WebDriver driver, WebElement source, WebElement target){
+        Actions action = new Actions(driver);
+        action.dragAndDrop(source, target).build().perform();
+    }
+    public void doubleClick(WebDriver driver, WebElement element){
+        Actions action = new Actions(driver);
+        action.doubleClick(element).build().perform();
+    }
+    public void rightClick(WebDriver driver, WebElement element){
+        Actions action = new Actions(driver);
+        action.contextClick(element).build().perform();
+    }
     public void scrollToView(WebElement element, WebDriver driver){
         JavascriptExecutor js = ((JavascriptExecutor)driver);
         js.executeScript("arguments[0].scrollIntoView(true)", element);
